@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+   http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+   
+    <persistence-unit name="demo" transaction-type="RESOURCE_LOCAL">
+	    <description>demo</description>
+	    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+	    
+		<!--<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+   		<!--<persistence-unit name="demo" transaction-type="JTA" / transaction-type="RESOURCE_LOCAL">-->
+   		
+      <class>demo.Authors</class>
+      <class>demo.Books</class>
+      <class>demo.Tags</class> 
+ 
+         <properties>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/library"/>
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="1111" />
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="show_sql" value="true"/>
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            
+        </properties>
+    </persistence-unit>
+</persistence>
